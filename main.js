@@ -15,6 +15,7 @@ searchValue:''
 ,
    nameTask: '',
    completeTasks:"",
+   selectedIndex:'',
 
     // tasksList: [
         
@@ -90,7 +91,12 @@ removeItem(index){
     this.items.splice(index ,1)
 }
 ,
+removeTaskAtIndex(){
+const index=this.selectedIndex -1
 
+
+      this.tasksList.splice(index, 1)
+},
     showMsg(message , isError=false){
  if(isError){
     this.messageClasses="error"

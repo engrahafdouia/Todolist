@@ -35,7 +35,10 @@
                 <!-- <button class="button">RemoveAtIndex</button> -->
                 <button @click="removeFirstTask"class="button">Remove FirstTask</button>
                 <button @click="removeLastTask"class="button">Remove LastTask</button>
-            </div>
+                <button @click="removeTaskAtIndex"class="button">removeTaskAtIndex</button>
+
+                <input type="number" min="1" :max="tasksList.length" placeholder="index" v-model="selectedIndex">
+              </div>
             <input type="search" name="search" placeholder="search"v-model="searchValue" id="">        
             <!-- <input type="search" v-model="query" /> -->
             <ul class="items">

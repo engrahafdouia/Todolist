@@ -44,6 +44,11 @@ header{
       margin-top: 10px;
   
   }
+  input[type='number']{
+    padding: 7px;
+    margin-bottom: 11px;
+    width: 99px;
+  }
   
    input[type='search'] {
     width: 100%;
