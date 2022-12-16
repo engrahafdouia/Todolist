@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bulma.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Todolist</title>
+</head>
+<body>
+    <header >
+        <h1 id="name "class="has-text-centered has-text-white is-thin">ToDoList with VueJs</h1>
+      </header>
+    <div id="app">
+
+        
+        <section class="container">
+            <form  id="my-form"@submit.prevent="addTask">
+                <!-- <div v-if="message" class="msg" :class="messageClass" v-text="message"></div> -->
+        <!-- <div v-text="message" class="msg":class="messageClasses"></div> -->
+        <div v-if="message" class="msg" :class="messageClasses" v-text="message"></div>
+
+        <div>
+        <label for="task">task</label>
+        <input type="text" name="task"v-model="nameTask"placeholder="New Task" >
+        <button class="button is-primary mt-2 ml-3">Add Task</button>
+        </div>
+            </form>
+            <div class="buttons ml-5">
+                <button class="button"@click="removeTasks">Remove All Tasks </button>
+                <!-- <button class="button">RemoveAtIndex</button> -->
+                <button @click="removeFirstTask"class="button">Remove FirstTask</button>
+                <button @click="removeLastTask"class="button">Remove LastTask</button>
+            </div>
+            <input type="search" name="search" placeholder="search"v-model="searchValue" id="">        
+            <!-- <input type="search" v-model="query" /> -->
+            <ul class="items">
+             
+        
+        
+         
+                <li class="item"v-for="(task ,i) in filterList">
+                    <!-- <input type="checkbox"@click="showComplete"v-if="iscomplete"  :class="completeTasks"> -->
+                    Task{{i+1}}:{{task.nameTask }}
+                    <span class="icon"@click="removeTask(i)"> <i class="fa fa-trash"></i></span>
+                    <!-- <span class="icon">
+                        <i class="fas fa-home"></i>
+                      </span> -->
+                </li>
+
+    
+           <!-- <span class="icon" @click="removeUser(i)">x</span> -->
+            </ul>
+            <!-- <ul>
+                <li class="item tasks__item"v-for="(task ,i) in tasksList">
+                    <button :class="className"
+                        @click.self="$emit('complete')"
+                    >
+                      {{ task.nameTask }}
+                    </button>
+                    <button class="tasks__item__remove button alert pull-right"
+                            @click="$emit('remove')"
+                    >
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </li>
+            </ul> -->
+
+    <!-- <div v-if="tasksList.length >= 2">There is {{ tasksList.length }} users</div>
+        <div v-else-if="tasksList.length == 1">There are One Task</div>
+        <div v-else>No Tasks</div>  -->
+
+      <!-- <div v-show="tasksList.length">
+        There are users
+      </div> -->
+<!--             
+	<ul v-for="(item ,i) in filteredItems">
+		<li class="item">{{item}}  <span class="icon"@click="removeItem(i)">  <i class="fa fa-trash"></i></span>
+        </li>
+	</ul> -->
+        </section>
+      
+    </div>
+</body>
+<script src="main.js" type="module"></script>
+</html>
